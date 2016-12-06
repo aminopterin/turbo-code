@@ -1,0 +1,6 @@
+bin/
+plt/
+out/
+*.o
+*.png
+.DS_Store
