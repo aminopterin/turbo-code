@@ -226,28 +226,21 @@ bool getFromTrellisState( std::size_t idx, std::size_t sPrev, std::size_t sNow,
 
 /* * * * * * * * helper functions * * * * * * * */
 
-// q :=w +w *x +w *x *y +w *x *y *z
-// Then, ignoring those of total degree >=5,
-// \log(1+q) \approx 
-//       w -w^2 /2 +w^3 /3 -w^4 /4 +w *x -w^2 *x +w^3 *x -
-//       w^2 *x^2 /2 +w *x *y +w *x *y *z -w^2 *x *y.
 double logSumExp( const std::vector<double>& vec_in )
 {
-
    std::vector<double> vec(vec_in);
-   std::sort( vec.begin(), vec.end(), std::greater<double>() );
+   std::sort( vec.begin(), vec.end(), std::greater<double>() );// sorted in decreasing order
    size_t sizeVec =vec.size();
    if( sizeVec ==1 ){ return vec[0]; }
 
-   double w =0; double x=0; double y =0; double z =0;
-   if( sizeVec >=5 ){ z =std::exp(-vec[3]+vec[4]); }
-   if( sizeVec >=4 ){ y =std::exp(-vec[2]+vec[3]); }
-   if( sizeVec >=3 ){ x =std::exp(-vec[1]+vec[2]); }
-   if( sizeVec >=2 ){ w =std::exp(-vec[0]+vec[1]); }
+   double sumExpDiff =0;// sum of exponentail of difference
+   for( size_t idx =1; idx <= sizeVec -1; idx++ )
+   {
+      if( vec[idx] <minExpArg ){ continue; }
+      sumExpDiff  +=std::exp( vec[idx]-vec[0] );
+   }
 
-   return vec[0] +
-         w -w*w/2 +w*w*w/3 -w*w*w*w/4 +w*x -w*w*x +w*w*w*x -
-         w*w*x*x/2 +w*x*y +w*x*y*z -w*w*x*y;
+   return vec[0] +std::log(1+sumExpDiff);
 }
 
 double infoToAmp( bool pBit, double amp ){ return ( (pBit) ? amp : (-amp) ); }
