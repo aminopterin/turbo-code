@@ -9,7 +9,7 @@
 #include <iostream> // left
 #include <iomanip> // setw, setfill
 #include <string> // string
-#include <cassert> // assert XXX
+#include <cassert> // assert
 
 #include "main.h" // constants
 #include "transmitter.h"
@@ -84,8 +84,8 @@ void sisoReceiver( double amp, const double* pL_aPr_in,
       }
 
       // saving overall log-likelihoods
-      pL_ext_out[i] =logSumExp(list1) -logSumExp(list0);
-      pL_tot[i] =4 *amp *pY_sys[i] /nn_0 +pL_aPr_in[i] +pL_ext_out[i];
+      pL_ext_out[i] =pL_aPr_in[i] +logSumExp(list1) -logSumExp(list0);
+      pL_tot[i] =4 *amp *pY_sys[i] /nn_0 +pL_ext_out[i];
    }
 
    // release of memory
@@ -232,6 +232,8 @@ double logSumExp( const std::vector<double>& vec_in )
    std::sort( vec.begin(), vec.end(), std::greater<double>() );// sorted in decreasing order
    size_t sizeVec =vec.size();
    if( sizeVec ==1 ){ return vec[0]; }
+
+   //return vec[0]; // XXX
 
    double sumExpDiff =0;// sum of exponentail of difference
    for( size_t idx =1; idx <= sizeVec -1; idx++ )

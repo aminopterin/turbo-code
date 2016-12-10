@@ -64,7 +64,7 @@ int main( int argc, char** argv )
    for( std::size_t cntSnr =0; cntSnr <=numPtSnr-1; cntSnr++ )
    {
       snr *= multSnr;
-      printAligned( savedStreams[0], 10 *log(snr) /log(10) );// table header
+      printAligned( savedStreams[0], 10 *std::log(snr) /std::log(10) );// table header
    }
 
    std::srand (std::time(0));// to initialize random seed
@@ -180,7 +180,7 @@ int main( int argc, char** argv )
             // In the following, only need to compare up to lenTot
             
             double pFinalInfo[lenSent] ={0};
-            deinterleave(pL_perm_info, pFinalInfo);
+            //deinterleave(pL_perm_info, pFinalInfo);
             for( std::size_t i =0; i <=lenTot-1; i++ )
             {
                pFinalInfo[i] +=pL_info[i];
@@ -222,7 +222,7 @@ int main( int argc, char** argv )
    {
       for( std::size_t cntSnr =0; cntSnr <=numPtSnr-1; cntSnr++ )
       {
-         printAligned( savedStreams[idxCurve+1], 10 *log( savedTable [idxCurve] [cntSnr] /numBlock ) /log(10) );
+         printAligned( savedStreams[idxCurve+1], 10 *std::log( minLogArg +savedTable [idxCurve] [cntSnr] /numBlock ) /std::log(10) );
       }
       delete[] savedTable [idxCurve];
    }

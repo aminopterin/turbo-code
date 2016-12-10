@@ -11,6 +11,7 @@
 #include <ctime> // time
 #include <vector> // vector
 #include <sstream> // ostringstream
+#include <cassert> // assert
 
 #include "main.h" // constants
 #include "transmitter.h"
@@ -35,6 +36,7 @@ void rscTransmitter( const bool* pIn, bool* pOutPar )
       std::size_t idx =lenTot -1 +m;
       pressOneCode( idx, sigma, pTermBits[m], pOutPar[idx] );
    }
+   assert(sigma==0);// to make sure the trellis terminates
 }
 
 // input bit b into the register having state s
