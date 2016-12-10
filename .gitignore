@@ -1,6 +1,7 @@
 bin/
 plt/
 out/
+trash-can/
 *.o
 *.png
 .DS_Store

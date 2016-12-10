@@ -9,6 +9,7 @@
 #include <iostream> // left
 #include <iomanip> // setw, setfill
 #include <string> // string
+#include <cassert> // assert XXX
 
 #include "main.h" // constants
 #include "transmitter.h"
@@ -33,22 +34,22 @@ void sisoReceiver( double amp, const double* pL_aPr_in,
    // For clarity, I've translated programming variables to conventional ones.
    // Suppose sPrev is the i-th state, and sNow the (i+1)-th:
    // ppAlpha[i][sNow] :=\alpha_i ( \sigma_i ), i=0,...,len
-   float** ppAlpha =new float*[lenSent+1];
+   double** ppAlpha =new double*[lenSent+1];
    // ppBeta[i][sPrev] :=\beta_i ( \sigma_{i-1} ), i=0,...,len
-   float** ppBeta =new float*[lenSent+1];
+   double** ppBeta =new double*[lenSent+1];
    // pppGamma[i][sPrev][sNow] :=\gamma_{i+1} ( \sigma_i,\sigma_{i+1} ), i=0,...,len-1
-   float*** pppGamma  =new float**[lenSent];
+   double*** pppGamma  =new double**[lenSent];
    for( int i =0; i <=lenSent; i++ )
    {
-      ppAlpha[i] = new float[numState];
-      ppBeta[i] = new float[numState];
+      ppAlpha[i] = new double[numState];
+      ppBeta[i] = new double[numState];
    }
    for( int i =0; i <=lenSent-1; i++ )
    {
-      pppGamma[i] = new float*[numState];
+      pppGamma[i] = new double*[numState];
       for( int s =0; s <=numState-1; s++ )
       {
-         pppGamma[i][s] =new float[numState];
+         pppGamma[i][s] =new double[numState];
       }
    }
 
@@ -72,18 +73,18 @@ void sisoReceiver( double amp, const double* pL_aPr_in,
             if( holdSys )
             {
                list1. push_back( 2 * infoToAmp(holdSys, amp) * infoToAmp(holdPar, amp) /nn_0 +
-                     static_cast<double>( ppAlpha [i] [sigmaPrev] + ppBeta [i+1] [sigmaNow] ) );
+                     ppAlpha [i] [sigmaPrev] + ppBeta [i+1] [sigmaNow] );
             }
             else
             {
                list0. push_back( 2 * infoToAmp(holdSys, amp) * infoToAmp(holdPar, amp) /nn_0 +
-                     static_cast<double>( ppAlpha [i] [sigmaPrev] + ppBeta [i+1] [sigmaNow] ) );
+                     ppAlpha [i] [sigmaPrev] + ppBeta [i+1] [sigmaNow] );
             }
          }
       }
 
       // saving overall log-likelihoods
-      pL_ext_out[i] =pickMaxAmongVector(list1) -pickMaxAmongVector(list0);
+      pL_ext_out[i] =logSumExp(list1) -logSumExp(list0);
       pL_tot[i] =4 *amp *pY_sys[i] /nn_0 +pL_aPr_in[i] +pL_ext_out[i];
    }
 
@@ -107,7 +108,7 @@ void sisoReceiver( double amp, const double* pL_aPr_in,
 // To find Bahl-Cocke-Jelinek-Raviv (BCJR) algoritm's coefficients.
 // \gamma's are computed first, and \alpha's and \beta's need \gamma's. 
 // Recall that they are log values!
-void tabulateAlphaBetaGamma( float** ppA, float** ppB, float*** pppG,
+void tabulateAlphaBetaGamma( double** ppA, double** ppB, double*** pppG,
       const double* pY_sys, const double* pY_par, const double* pL_a, std::size_t aa )
 {
    // to initialize
@@ -146,9 +147,8 @@ void tabulateAlphaBetaGamma( float** ppA, float** ppB, float*** pppG,
             double diffPar =pY_par[i] -pC_par;
             // see Proakis, Digital Communications, 6e, ch.8, p.545, (8.8-19)
             double tmpProb =(pBit_sys) ? ( 1/( exp(-pL_a[i]) +1) ) : ( 1/(exp(pL_a[i]) +1) );
-            pppG[i][sPrev][sNow] = static_cast<float>(
-                  log(tmpProb) -log(pi) -log(nn_0) -
-                  (diffSys *diffSys +diffPar *diffPar) /nn_0 );
+            pppG[i][sPrev][sNow] = log(tmpProb) -log(pi) -log(nn_0) -
+                  (diffSys *diffSys +diffPar *diffPar) /nn_0;
          }// end for sNow
       }// end for sPrev
    }
@@ -170,7 +170,7 @@ void tabulateAlphaBetaGamma( float** ppA, float** ppB, float*** pppG,
             // see Proakis, Digital Communications, 6e, ch.8, p.545, (8.8-27)
             listA. push_back( ppA[i][sPrev] +pppG[i][sPrev][sNow] );
          }
-         ppA[i+1][sNow] =static_cast<float>( pickMaxAmongVector(listA) );
+         ppA[i+1][sNow] =logSumExp(listA);
       }
    }
 
@@ -191,7 +191,7 @@ void tabulateAlphaBetaGamma( float** ppA, float** ppB, float*** pppG,
             // see Proakis, Digital Communications, 6e, ch.8, p.545, (8.8-27)
             listB. push_back( ppB[i][sNow] +pppG[i-1][sPrev][sNow] );
          }
-         ppB[i-1][sPrev] =static_cast<float>( pickMaxAmongVector(listB) );
+         ppB[i-1][sPrev] =logSumExp(listB);
       }
    }
 }
@@ -226,36 +226,32 @@ bool getFromTrellisState( std::size_t idx, std::size_t sPrev, std::size_t sNow,
 
 /* * * * * * * * helper functions * * * * * * * */
 
-double pickMaxAmongVector( const std::vector<double>& vec )
+double logSumExp( const std::vector<double>& vec )
 {
-   double tmp =negInf;
+   double sumExp =0;
    for( std::vector<double>:: const_iterator it =vec.begin(); it !=vec.end(); it++ )
    {
-      if( (*it) >tmp ){ tmp =(*it); }
+      if(*it >=maxExpArg){ goto pickMaxAmongVec; }
+      if(*it <=minExpArg){ continue; }
+      sumExp +=std::exp(*it);
    }
-   return tmp; 
+
+   if( (sumExp >=maxLogArg) || (sumExp <=minLogArg) ){ goto pickMaxAmongVec; }
+   return std::log(sumExp);
+
+   pickMaxAmongVec :
+
+   double ret =negInf;
+   for( std::vector<double>:: const_iterator it =vec.begin(); it !=vec.end(); it++ )
+   {
+      if( *it >ret ){ ret =*it; }
+   }
+   return ret;
 }
+
 
 double infoToAmp( bool pBit, double amp ){ return ( (pBit) ? amp : (-amp) ); }
 
-
-void deinterleave( const double* pIn_perm, double* pIn )
-{
-   for( std::size_t i =0; i <= lenSent-1; i++ )
-   {
-      pIn[ (i +idxShift *len_k) %lenSent ] =pIn_perm[i];
-   }
-}
-
-void deinterleave( const bool* pIn_perm, bool* pIn )
-{
-   for( std::size_t i =0; i <= lenSent-1; i++ )
-   {
-      pIn[ (i +idxShift *len_k) %lenSent ] =pIn_perm[i];
-   }
-}
-
-/*
 // function overloading: for double
 void deinterleave( const double* pIn_perm, double* pIn )
 {
@@ -287,4 +283,16 @@ void deinterleave( const bool* pIn_perm, bool* pIn )
       }
    }
 }
-*/
+
+// function overloading: for double
+void zero( double* p, std::size_t len )
+{
+   for( std::size_t i =0; i <=len-1; i++ ){ p[i] =0; }
+}
+
+// function overloading: for bool
+void zero( bool* p, std::size_t len )
+{
+   for( std::size_t i =0; i <=len-1; i++ ){ p[i] =0; }
+}
+

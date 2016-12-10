@@ -109,7 +109,6 @@ We see that they would become
 after interleaving. In other words, we "flatten" the entries of the transposed
 rectangle (shown above) the way the old ones are. */
 
-/*
 // function overloading: for double
 void interleave( const double* pIn, double* pIn_perm )
 {
@@ -139,23 +138,6 @@ void interleave( const bool* pIn, bool* pIn_perm )
          std::size_t idxNew =lNew *len_k +kNew;
          pIn_perm[idx] =pIn[idxNew];
       }
-   }
-}
-*/
-
-void interleave( const double* pIn, double* pIn_perm )
-{
-   for( std::size_t i =0; i <= lenSent-1; i++ )
-   {
-      pIn_perm[ (i -idxShift *len_k) %lenSent ] =pIn[i];
-   }
-}
-
-void interleave( const bool* pIn, bool* pIn_perm )
-{
-   for( std::size_t i =0; i <= lenSent-1; i++ )
-   {
-      pIn_perm[ (i -idxShift *len_k) %lenSent ] =pIn[i];
    }
 }
 

@@ -83,41 +83,33 @@ int main( int argc, char** argv )
 
          snr *=multSnr;
          std::cout << "   For snr = " << snr << ", process running...\n";
-    
+
          // allocation of memory
-         bool* pX =new bool[lenSent];// information bits
-         bool* pX_par =new bool[lenSent];// parity bits (through convolution)
-         bool* pX_perm =new bool[lenSent];// interleaved
-         bool* pX_perm_par =new bool[lenSent];// parity bits of interleaved seq.
-         // to clear junk values, though not necessary
-         for( std::size_t i =0; i <=lenSent-1; i++ )
-         {
-            pX[i] =0;
-            pX_par[i] =0;
-            pX_perm[i] =0;
-            pX_perm_par[i] =0;
-         }   
- 
+         // information bits
+         bool* pX =new bool[lenSent]; zero( pX, lenSent );
+         // parity bits through convolutional code
+         bool* pX_par =new bool[lenSent]; zero( pX_par, lenSent );
+         // interleaved information bits
+         bool* pX_perm =new bool[lenSent]; zero( pX_perm, lenSent );
+         // parity bits through convolutional code, of interleaved sequence,
+         bool* pX_perm_par =new bool[lenSent]; zero( pX_perm_par, lenSent );
+
          /* * * * * * * * * * * * * * * * * */
          // transmission end
          generateInfoBits(pX);// generate information bits
          rscTransmitter(pX, pX_par);// convolutional code
          interleave(pX, pX_perm);// interleaved
          rscTransmitter(pX_perm, pX_perm_par);// convolutional code after interleaving
-    
-         double* pY_sys =new double[lenSent];// systematic bits, through channel
-         double* pY_sys_perm =new double[lenSent];// for holding bits interleaved of systematic ones recieved
-         double* pY_par =new double[lenSent];// parity bits, through channel
-         double* pY_perm_par =new double[lenSent];// parity of interleaved, through channel
-         // to clear garbage value (just for safety)
-         for( std::size_t i =0; i <=lenSent-1; i++ )
-         {
-            pY_sys[i] =0;
-            pY_sys_perm[i] =0;
-            pY_par[i] =0;
-            pY_perm_par[i] =0;
-         }
-    
+
+         // systematic bits, passed through channel
+         double* pY_sys =new double[lenSent]; zero( pY_sys, lenSent );
+         // above interleaved
+         double* pY_sys_perm =new double[lenSent]; zero( pY_sys_perm, lenSent );
+         // parity bits, passed through channel
+         double* pY_par =new double[lenSent]; zero( pY_par, lenSent );
+         // parity bits of interleaved sequence, passed through channel
+         double* pY_perm_par =new double[lenSent]; zero( pY_perm_par, lenSent );
+
          /* * * * * * * * * * * * * * * * * */
          // inside channel
          signalThruAWGN( lenSent, pX, pY_sys, std::sqrt(snr) );
@@ -128,7 +120,7 @@ int main( int argc, char** argv )
          delete[] pX_par;
          delete[] pX_perm;
          delete[] pX_perm_par;
-    
+
          interleave(pY_sys, pY_sys_perm);// to be fed into 2nd SISO-decoder
 
          /* * * * * * * * * * * * * * * * * */
@@ -146,34 +138,29 @@ int main( int argc, char** argv )
          std::size_t cntIter =0;// count of no. of iteration
 
          // iterative decoding
-         pInput1 =new double[lenSent];
-         for( std::size_t i =0; i <=lenSent-1; i++ ){ pInput1[i] =0; }
+         pInput1 =new double[lenSent]; zero( pInput1, lenSent );
          while(true)
          {
-            pL_ext_12 =new double[lenSent];
-            pL_info =new double[lenSent];
-            for( std::size_t i =0; i <=lenSent-1; i++ ){ pL_ext_12[i] =0; pL_info[i] =0; }
+            pL_ext_12 =new double[lenSent]; zero( pL_ext_12, lenSent );
+            pL_info =new double[lenSent]; zero( pL_info, lenSent );
 
             sisoReceiver( std::sqrt(snr), pInput1, pY_sys,
                   pY_par, pL_ext_12, pL_info );
 
             delete[] pInput1;
-            pInput2 =new double[lenSent];
-            for( std::size_t i =0; i <=lenSent-1; i++ ){ pInput2[i] =0; }
+            pInput2 =new double[lenSent]; zero( pInput2, lenSent );
 
             interleave(pL_ext_12, pInput2);
 
             delete[] pL_ext_12;
-            pL_ext_21 =new double[lenSent];
-            pL_perm_info =new double[lenSent];
-            for( std::size_t i =0; i <=lenSent-1; i++ ){ pL_ext_21[i] =0; pL_perm_info[i] =0; }
+            pL_ext_21 =new double[lenSent]; zero( pL_ext_21, lenSent );
+            pL_perm_info =new double[lenSent]; zero( pL_perm_info, lenSent );
 
             sisoReceiver( std::sqrt(snr), pInput2, pY_sys_perm,
                   pY_perm_par, pL_ext_21, pL_perm_info );
 
             delete[] pInput2;
-            pInput1 =new double[lenSent];
-            for( std::size_t i =0; i <=lenSent-1; i++ ){ pInput1[i] =0; }
+            pInput1 =new double[lenSent]; zero( pInput1, lenSent );
 
             deinterleave(pL_ext_21, pInput1);
 
