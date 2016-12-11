@@ -84,8 +84,8 @@ void sisoReceiver( double amp, const double* pL_aPr_in,
       }
 
       // saving overall log-likelihoods
-      pL_ext_out[i] =pL_aPr_in[i] +logSumExp(list1) -logSumExp(list0);
-      pL_tot[i] =4 *amp *pY_sys[i] /nn_0 +pL_ext_out[i];
+      pL_ext_out[i] =logSumExp(list1) -logSumExp(list0);
+      pL_tot[i] =4 *amp *pY_sys[i] /nn_0 +pL_aPr_in[i] +pL_ext_out[i];
    }
 
    // release of memory

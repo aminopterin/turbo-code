@@ -26,4 +26,9 @@ void printAligned( std::ostringstream*, const std::string& );
 void printAligned( std::ostringstream*, double );
 void printAligned( std::ostringstream*, std::size_t );
 
+// debug XXX
+/* * * * * * * debug XXX * * * * * * * * */
+void printPtr( std::ostream*, double*, std::size_t );
+void printPtr( std::ostream*, bool*, std::size_t );
+
 #endif

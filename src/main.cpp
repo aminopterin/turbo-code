@@ -43,21 +43,38 @@ int main( int argc, char** argv )
       exit(1);// indicating failure
    }
 
+// XXX
+   std::ofstream* pOutX =new std::ofstream;
+   pOutX -> open ( "./out/debug_X.txt" );
+   std::ofstream* pOutY =new std::ofstream;
+   pOutY -> open ( "./out/debug_Y.txt" );
+   std::ofstream* pOutAPosLLR =new std::ofstream;
+   pOutAPosLLR -> open ( "./out/debug_a_pos_LLR.txt" );
+
    // all data to be written into text file:
    double** savedTable =new double* [numCurve];
    for( std::size_t idxCurve =0; idxCurve <=numCurve-1; idxCurve++ )
    {
       savedTable[idxCurve] =new double[numPtSnr];
-      for( std::size_t cntSnr =0; cntSnr <=numPtSnr-1; cntSnr++ ){ savedTable [idxCurve] [cntSnr] =0; }
+      for( std::size_t cntSnr =0; cntSnr <=numPtSnr-1; cntSnr++ )
+      {
+         savedTable [idxCurve] [cntSnr] =0;
+      }
    }
 
    // but first save into a string stream to facilitate typesetting:
    // (in total, numCurve +1 entries; the 1st being table head)
    std::ostringstream** savedStreams =new std::ostringstream* [numCurve+1];
-   for( std::size_t idxCurve =0; idxCurve <=numCurve; idxCurve++ ){ savedStreams[idxCurve] =new std::ostringstream; }
+   for( std::size_t idxCurve =0; idxCurve <=numCurve; idxCurve++ )
+   {
+      savedStreams[idxCurve] =new std::ostringstream;
+   }
    
    // allocation of pointers and print remaining of the 1st column
-   for( std::size_t idxCurve =0; idxCurve <=numCurve-1; idxCurve++ ){ printAligned( savedStreams[ idxCurve+1 ], listNumIter[ idxCurve ] ); }
+   for( std::size_t idxCurve =0; idxCurve <=numCurve-1; idxCurve++ )
+   {
+      printAligned( savedStreams[ idxCurve+1 ], listNumIter[ idxCurve ] );
+   }
    // for clarity, print table head first
    printAligned( savedStreams[0], "" );// table header
    double snr =startSnr;
@@ -97,12 +114,14 @@ int main( int argc, char** argv )
          /* * * * * * * * * * * * * * * * * */
          // transmission end
          generateInfoBits(pX);// generate information bits
+   printPtr( pOutX, pX, lenSent ); // XXX
          rscTransmitter(pX, pX_par);// convolutional code
          interleave(pX, pX_perm);// interleaved
          rscTransmitter(pX_perm, pX_perm_par);// convolutional code after interleaving
 
          // systematic bits, passed through channel
          double* pY_sys =new double[lenSent]; zero( pY_sys, lenSent );
+   printPtr( pOutY, pY_sys, lenSent ); // XXX
          // above interleaved
          double* pY_sys_perm =new double[lenSent]; zero( pY_sys_perm, lenSent );
          // parity bits, passed through channel
@@ -185,12 +204,19 @@ int main( int argc, char** argv )
             {
                pFinalInfo[i] +=pL_info[i];
                pFinalInfo[i] /=2;
-               if( pX[i] && (pFinalInfo[i]<0) ){ numErr++; }
-               if( (!pX[i]) && (pFinalInfo[i]>0) ){ numErr++; }
+               if( (pX[i] && (pFinalInfo[i]<0)) || ((!pX[i]) && (pFinalInfo[i]>0)) )
+               {
+                  std::cout << "         mismatch: i = " << i << '\n';
+                  numErr++;
+               }
             }
-            savedTable [idxCurve] [cntSnr] +=static_cast<double>(numErr) /lenTot;
+            savedTable [idxCurve] [cntSnr] +=static_cast<double>(numErr);
 
             std::cout << "      iteration " << nextNumIter << " done!\n";
+   (*pOutAPosLLR) << "   for iteration " << nextNumIter << ":\n";// XXX
+   printPtr( pOutAPosLLR, pFinalInfo, lenSent ); // XXX
+
+
             delete[] pL_info;
             delete[] pL_perm_info;
 
@@ -211,10 +237,12 @@ int main( int argc, char** argv )
          // to print present time
          tEnd =std::time(0);
          time_t tDiff =std::difftime(tEnd, tStart);
+/*
          std::cout << "   ...case snr = " << snr << " completed, for which "
                << tDiff /3600 << "h "
                << (tDiff /60) %60 << "m "
                << tDiff %60 << "s has elapsed.\n";
+*/
       }// end for each snr
    }// end for each block
 
@@ -222,7 +250,7 @@ int main( int argc, char** argv )
    {
       for( std::size_t cntSnr =0; cntSnr <=numPtSnr-1; cntSnr++ )
       {
-         printAligned( savedStreams[idxCurve+1], 10 *std::log( minLogArg +savedTable [idxCurve] [cntSnr] /numBlock ) /std::log(10) );
+         printAligned( savedStreams[idxCurve+1], savedTable [idxCurve] [cntSnr] );
       }
       delete[] savedTable [idxCurve];
    }

@@ -182,3 +182,21 @@ void printAligned( std::ostringstream* pOStr, std::size_t s )
       << std::fixed << std::setprecision(3) << s;
 }
 
+/* * * * * * * debug XXX * * * * * * * * */
+// overloading for double
+void printPtr( std::ostream* pOStr, double* p, std::size_t len )
+{
+   for( std::size_t i =0; i <=len -1; i++ )
+   {
+      (*pOStr) << i << ": " << p[i] << '\n';
+   }
+}
+
+// overloading for bool
+void printPtr( std::ostream* pOStr, bool* p, std::size_t len )
+{
+   for( std::size_t i =0; i <=len -1; i++ )
+   {
+      (*pOStr) << i << ": " << p[i] << '\n';
+   }
+}
