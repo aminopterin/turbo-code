@@ -14,7 +14,7 @@
 #include <limits> // numeric_limits
 
 // numerical const.:
-const double posInf =std::numeric_limits<double>::max();// largest double
+const double posInf =std::numeric_limits<double>::max() /2;// largest double
 const double negInf =(-1) *posInf;// smallest (most negative) double
 const double stdEpsilon =std::numeric_limits<double>::epsilon();// smallest step of double around 1.0
 const double maxExpArg =std::min( std::log( posInf ), posInf );
@@ -24,8 +24,8 @@ const double minLogArg =std::max( std::exp( negInf ), stdEpsilon );
 const double pi =3.14159265358979323846;// \pi
 
 // simulation-method related:
-const std::size_t len_k =60;//first dimension of interleaving square
-const std::size_t len_l =80;//second dimension of interleaving square
+const std::size_t len_k =80;//first dimension of interleaving square
+const std::size_t len_l =120;//second dimension of interleaving square
 const std::size_t lenSent =len_k *len_l;// no. of bits sent
 const std::size_t lenTermBits =3;// no. of bits required to zero the trellis
 const std::size_t lenTot =lenSent -lenTermBits;// block length
@@ -33,7 +33,7 @@ const std::size_t lenTot =lenSent -lenTermBits;// block length
 const std::size_t pTermSequence[] ={ 0, 4, 6, 2, 3, 7, 5, 1 };// trellis termination sequences
 const std::size_t sizeConv =3;// no. of registers of convolution encoder
 const std::size_t numState =std::pow( 2.0, static_cast<double>(sizeConv) );// which is 2 ^ sizeConv
-const std::size_t numBlock =1;// no. of blocks
+const std::size_t numBlock =50;// no. of blocks
 const double rateCode =static_cast<double>(3) /5;// code rate
 
 // data point specification:

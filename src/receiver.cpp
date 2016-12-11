@@ -58,6 +58,9 @@ void sisoReceiver( double amp, const double* pL_aPr_in,
 
    for( std::size_t i =0; i <= lenSent-1; i++ )
    {
+      if( pL_aPr_in[i] >=posInf ){ pL_ext_out[i] =posInf; continue; }
+      if( pL_aPr_in[i] <=negInf ){ pL_ext_out[i] =negInf; continue; }
+
       std::vector< double > list0;
       std::vector< double > list1;
       for( std::size_t sigmaPrev =0; sigmaPrev <=numState-1; sigmaPrev++ )
