@@ -1,14 +1,14 @@
 /* * * * * * * * * * * * * * * *
- filename: transmitter.h 
+ filename: transmitter.hpp
  author: Tzu-Yu Jeng
  date: early Sep. 2016
  description: header for transmitter.cpp
 * * * * * * * * * * * * * * * */
-#ifndef TRANSMITTER_H
-#define TRANSMITTER_H
+#ifndef TRANSMITTER_HPP
+#define TRANSMITTER_HPP
 
 #include <cstddef> // size_t
-#include "main.h" // constants
+#include "main.hpp" // constants
 
 // transmitter coding:
 void rscTransmitter( const bool*, bool* );

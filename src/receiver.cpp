@@ -11,9 +11,9 @@
 #include <string> // string
 #include <cassert> // assert
 
-#include "main.h" // constants
-#include "transmitter.h"
-#include "receiver.h"
+#include "main.hpp" // constants
+#include "transmitter.hpp"
+#include "receiver.hpp"
 
 //    (For more info, see Proakis, Digital Communications, 6e)
 //    This soft-in soft-out (SISO) receiver is the component of turbo receiver, 

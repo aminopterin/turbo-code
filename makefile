@@ -3,53 +3,53 @@
 # date: early Sep. 2016
 # description: linker for the whole project
 
-# the C++ compiler to use
+# to set the C++ compiler to use
 CXX = g++
 
-# the C++ compile-time flags
+# to set the C++ compile-time flags
 # for compatibility, use 2003 standard
 CXXFLAGS = -std=c++03
 
-# removal of generated files: "rm" for remove, "-f" for force
+# to remove the generated files: `rm` for remove, `-f` for force
 RM =rm -f
 
-# to define the executable's filename
+# to set the executable's filename
 MAIN = ./bin/turbo
 
-# to define the C source files
+# to set the C source files
 SRCS = $(wildcard src/*.cpp)
 
-# to replace all .cpp with .o
+# to replace all `.cpp` with `.o`
 OBJS = $(SRCS:.cpp=.o)
 
-# the directory being included:
+# to set the directory being included:
 # for binary libraries, use -L/...;
 # for included files, use -I/...;
 INCLUDES =
 
-# the headers
-DEPS = $(wildcard src/*.h)
+# to set the headers
+DEPS = $(wildcard src/*.hpp)
 
-# message displayed in the beginning (defined later)
+# to hold message displayed in the beginning (defined later)
 MSG =
 
-# the normal object for release
+# for release
 all : all_flag message $(MAIN)
 
 all_flag :
 	$(eval MSG := To compile the executable $(MAIN):)
 	$(eval CXXFLAGS += -O3)
 
-# the object for sake of debugging
+# for sake of debugging
 debug : debug_flag message $(MAIN)
 
-# "-Wall" turns on all warnings (warn all)
-# "-g" is the debug option: saving symbol table, line number
+# `-Wall` turns on all warnings (warn all)
+# `-g` is the debug option: saving symbol table, line number
 debug_flag :
 	$(eval MSG := To compile the debug version of executable $(MAIN):)
 	$(eval CXXFLAGS += -g -Wall)
 
-# output pre-build message
+# to output pre-build message
 message :
 	@echo $(MSG)
 
@@ -59,20 +59,20 @@ $(MAIN) : $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 	@echo Compilation successful!
 
-# all object files depends on all headers
+# that all object files depends on all headers
 $(OBJS) : $(DEPS)
 
-# This is a suffix replacement rule for building .o's from .cpp's:
-# Value $^ is list of all prerequisites of rules of this target;
-# Value $< is the first prerequisite of first rule (rhs. of `:');
-# Value $@ is the name of this target (lhs. of `:').
-# Option -c for g++ claims not to run the linker.
+# this is a suffix replacement rule for building `.o`'s from `.cpp`'s:
+# value `$^` is list of all prerequisites of rules of this target;
+# value `$<` is the first prerequisite of first rule (rhs. of `:`);
+# value `$@` is the name of this target (lhs. of `:`).
+# option `-c` for g++ claims not to run the linker
 ./src/%.o : ./src/%.cpp
 	@echo Now $@ is being created...
 	$(CXX) $(CXXFLAGS) -o $@ $(INCLUDES) -c $<
 
-# Claim a fake (phony) object that is always out of date,
-# in order it is always being re-made (`make clean').
+# to claim a fake (phony) object that is always out of date,
+# in order it is always being re-made (`make clean`).
 .PHONY : all all_flag debug debug_flag message clean 
 
 clean :

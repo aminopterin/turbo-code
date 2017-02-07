@@ -15,9 +15,9 @@
 #include <fstream> // ofstream
 #include <string> // string
 
-#include "main.h" // constants
-#include "transmitter.h"
-#include "receiver.h" 
+#include "main.hpp" // constants
+#include "transmitter.hpp"
+#include "receiver.hpp"
 
 int main( int argc, char** argv )
 {

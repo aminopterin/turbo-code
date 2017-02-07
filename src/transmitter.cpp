@@ -13,9 +13,9 @@
 #include <sstream> // ostringstream
 #include <cassert> // assert
 
-#include "main.h" // constants
-#include "transmitter.h"
-#include "receiver.h"
+#include "main.hpp" // constants
+#include "transmitter.hpp"
+#include "receiver.hpp"
 
 // a rate 3/5, 8-state recursive systematic convolutional transmitter,
 // used in core of 3GPP standard "25.212 TS".
@@ -53,7 +53,7 @@ void pressOneCode( std::size_t idx, std::size_t& state, bool b, bool& par )
    // feedback
    hold = ( (b != reg[1]) != reg[2] );// this is just XOR
    // parity bit
-   if( idx%3 ==0 ){ par =false; }// puncturing
+   if( idx % periodPuncture ==0 ){ par =false; }// puncturing
    else{ par = ( (hold != reg[0]) != reg[2] ); }// as usual
    // push new values into registers
    reg[2] =reg[1];

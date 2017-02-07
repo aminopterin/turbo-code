@@ -1,0 +1,568 @@
+Starting 1-th simulation:
+   For snr = 1.16006, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.16006 completed, for which 0h 5m 1s has elapsed.
+   For snr = 1.27606, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.27606 completed, for which 0h 5m 3s has elapsed.
+   For snr = 1.40367, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.40367 completed, for which 0h 5m 2s has elapsed.
+   For snr = 1.54404, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.54404 completed, for which 0h 5m 19s has elapsed.
+   For snr = 1.69844, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.69844 completed, for which 0h 5m 10s has elapsed.
+   For snr = 1.86829, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.86829 completed, for which 0h 5m 1s has elapsed.
+   For snr = 2.05511, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 2.05511 completed, for which 0h 4m 47s has elapsed.
+   For snr = 2.26063, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 2.26063 completed, for which 0h 4m 47s has elapsed.
+Starting 2-th simulation:
+   For snr = 1.16006, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.16006 completed, for which 0h 4m 48s has elapsed.
+   For snr = 1.27606, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.27606 completed, for which 0h 4m 48s has elapsed.
+   For snr = 1.40367, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.40367 completed, for which 0h 4m 48s has elapsed.
+   For snr = 1.54404, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.54404 completed, for which 0h 4m 47s has elapsed.
+   For snr = 1.69844, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.69844 completed, for which 0h 4m 47s has elapsed.
+   For snr = 1.86829, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.86829 completed, for which 0h 4m 47s has elapsed.
+   For snr = 2.05511, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 2.05511 completed, for which 0h 4m 48s has elapsed.
+   For snr = 2.26063, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 2.26063 completed, for which 0h 4m 48s has elapsed.
+Starting 3-th simulation:
+   For snr = 1.16006, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.16006 completed, for which 0h 4m 47s has elapsed.
+   For snr = 1.27606, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.27606 completed, for which 0h 4m 49s has elapsed.
+   For snr = 1.40367, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.40367 completed, for which 0h 4m 46s has elapsed.
+   For snr = 1.54404, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.54404 completed, for which 0h 4m 48s has elapsed.
+   For snr = 1.69844, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.69844 completed, for which 0h 4m 47s has elapsed.
+   For snr = 1.86829, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.86829 completed, for which 0h 4m 48s has elapsed.
+   For snr = 2.05511, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 2.05511 completed, for which 0h 4m 49s has elapsed.
+   For snr = 2.26063, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 2.26063 completed, for which 0h 4m 47s has elapsed.
+Starting 4-th simulation:
+   For snr = 1.16006, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.16006 completed, for which 0h 4m 47s has elapsed.
+   For snr = 1.27606, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.27606 completed, for which 0h 4m 48s has elapsed.
+   For snr = 1.40367, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.40367 completed, for which 0h 4m 48s has elapsed.
+   For snr = 1.54404, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.54404 completed, for which 0h 4m 47s has elapsed.
+   For snr = 1.69844, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.69844 completed, for which 0h 4m 48s has elapsed.
+   For snr = 1.86829, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.86829 completed, for which 0h 4m 48s has elapsed.
+   For snr = 2.05511, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 2.05511 completed, for which 0h 4m 49s has elapsed.
+   For snr = 2.26063, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 2.26063 completed, for which 0h 4m 48s has elapsed.
+Starting 5-th simulation:
+   For snr = 1.16006, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.16006 completed, for which 0h 4m 47s has elapsed.
+   For snr = 1.27606, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.27606 completed, for which 0h 4m 48s has elapsed.
+   For snr = 1.40367, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.40367 completed, for which 0h 4m 47s has elapsed.
+   For snr = 1.54404, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.54404 completed, for which 0h 4m 48s has elapsed.
+   For snr = 1.69844, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.69844 completed, for which 0h 4m 48s has elapsed.
+   For snr = 1.86829, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.86829 completed, for which 0h 4m 47s has elapsed.
+   For snr = 2.05511, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 2.05511 completed, for which 0h 4m 48s has elapsed.
+   For snr = 2.26063, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 2.26063 completed, for which 0h 4m 48s has elapsed.
+Starting 6-th simulation:
+   For snr = 1.16006, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.16006 completed, for which 0h 4m 47s has elapsed.
+   For snr = 1.27606, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.27606 completed, for which 0h 4m 48s has elapsed.
+   For snr = 1.40367, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.40367 completed, for which 0h 4m 48s has elapsed.
+   For snr = 1.54404, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.54404 completed, for which 0h 4m 48s has elapsed.
+   For snr = 1.69844, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.69844 completed, for which 0h 4m 47s has elapsed.
+   For snr = 1.86829, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.86829 completed, for which 0h 4m 47s has elapsed.
+   For snr = 2.05511, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 2.05511 completed, for which 0h 4m 48s has elapsed.
+   For snr = 2.26063, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 2.26063 completed, for which 0h 4m 48s has elapsed.
+Starting 7-th simulation:
+   For snr = 1.16006, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.16006 completed, for which 0h 4m 48s has elapsed.
+   For snr = 1.27606, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.27606 completed, for which 0h 4m 47s has elapsed.
+   For snr = 1.40367, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.40367 completed, for which 0h 4m 48s has elapsed.
+   For snr = 1.54404, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.54404 completed, for which 0h 4m 48s has elapsed.
+   For snr = 1.69844, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.69844 completed, for which 0h 4m 47s has elapsed.
+   For snr = 1.86829, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 1.86829 completed, for which 0h 4m 47s has elapsed.
+   For snr = 2.05511, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 2.05511 completed, for which 0h 4m 48s has elapsed.
+   For snr = 2.26063, process running...
+      iteration 1 done!
+      iteration 2 done!
+      iteration 4 done!
+      iteration 6 done!
+      iteration 9 done!
+      iteration 12 done!
+      iteration 18 done!
+      iteration 24 done!
+   ...case snr = 2.26063 completed, for which 0h 4m 48s has elapsed.
+The whole program takes, in total, 4h 30m 18s.

@@ -1,17 +1,17 @@
 /* * * * * * * * * * * * * * * *
- filename: receiver.h 
+ filename: receiver.hpp
  author: Tzu-Yu Jeng
  date: early Sep. 2016
  description: header for receiver.cpp
 * * * * * * * * * * * * * * * */
-#ifndef RECEIVER_H
-#define RECEIVER_H
+#ifndef RECEIVER_HPP
+#define RECEIVER_HPP
 
 #include <cstddef> // size_t
 #include <vector> // vector
 #include <queue> // queue
 #include <iomanip> // setw, setfill
-#include "main.h" // constants
+#include "main.hpp" // constants
 
 // chief functions:
 void sisoReceiver( double, const double*, 
